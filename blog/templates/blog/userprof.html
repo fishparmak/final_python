@@ -1,4 +1,108 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
-    {{ user.name }}
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="is-offset-0 column is-3">
+				<figure class="image is-image is-square">
+					<img class="is-rounded" src="{{ user.img }}" alt="">
+				</figure>
+				<h2 class="title is-3">{{ user.name }}</h2>
+					<div class="is-block">
+						<p class="subtitle is-3" style="margin-bottom: 15px;"><strong>{{team.name}}</strong></p>
+						<progress class="progress is-link" value="30" max="100" style="width: 80vw; max-width: 270px; margin-bottom: 15px;">69%</progress>
+						<p class="subtitle is-3 is-marginless">420 Lvl</p>
+					</div>
+
+				<div class="content">
+					<tr>
+						<div class="buttons">
+							<a href="#" class="button is-success is-rounded">Follow</a>
+						</div>
+
+                       <!-- <hr class="hr has-background-grey-lighter"> -->
+                    </tr>
+
+				</div>
+			</div>
+			<div class="column is-9">
+				<div class="box">
+					<h2 class="title">Projects</h2>
+
+					<div class="content">
+					<ul style="list-style-type:none">
+                    {% for  project in projects %}
+						<li>
+
+							<h3 class="title is-4">{{ project }}</h3>
+							<p class="subtitle">{{ project.description }}</p>
+
+						</li>
+                        <hr class="hr has-background-grey-lighter">
+                        {% endfor %}
+					</ul>
+					</div>
+
+				</div>
+
+
+						<hr>
+					<div class="box">
+					<h2 class="title">Hackathons</h2>
+						<div class="content">
+					<ul style="list-style-type:none">
+                    {% for hack in hacks %}
+						<li>
+							<h3 class="title is-4">{{ hack.name }}</h3>
+							<p class="subtitle">{{ hack.description }}</p>
+
+						</li>
+                        <hr class="hr has-background-grey-lighter">
+                        {% endfor %}
+					</ul>
+						</div>
+					</div>
+						<hr>
+
+
+					<div class="box">
+						<h2 class="title">Teams</h2>
+                        {% for team in teams %}
+						<div class="column">
+						<div class="level">
+							<div class="level-left">
+								<div class="level-item">
+									<figure class="image is-96x96">
+									  <img style="max-width:100%;"class="is-rounded" src="{{ team.img }}">
+									</figure>
+								</div>
+								<div class="level-item is-marginless">
+									<div class="is-block">
+										<h5 class="title" style="">{{ team.name }}</h5>
+										<hr>
+										<p class="subtitle is-3" style="margin-bottom: 15px;"><strong></strong></p>
+										<progress class="progress is-link" value="30" max="100" style="width: 80vw; max-width: 350px; margin-bottom: 15px;">30%</progress>
+										<p class="subtitle is-3 is-marginless">10 Lvl</p>
+									</div>
+								</div>
+							</div>
+							<div class="level-right">
+								<div class="level-item">
+									<a class="button is-info">Enroll</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+						<hr>
+                    {% endfor %}
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 {% endblock %}

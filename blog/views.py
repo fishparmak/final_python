@@ -57,8 +57,21 @@ def users(request):
 
 
 def userprof(request, user_id):
-    user = User.objects.get(id = user_id)
-    return render(request, 'blog/userprof.html', {'user': user})
+    user = User.objects.get(id=user_id)
+    teams = UserTeam.objects.filter(user=user_id).order_by('?')
+    teamslist = []
+    projects = set()
+    hacks = set()
+    for team in teams:
+        temp = UserTeamProject.objects.filter(team=team.id)
+        htemp = UserTeamHack.objects.filter(team=team.id)
+        teamslist.append(team.team)
+        for t in temp:
+            projects.add(t.project)
+        for h in htemp:
+            hacks.add(h.hackathon)
+
+    return render(request, 'blog/userprof.html', {'user': user, 'projects': projects, 'hacks':hacks, 'teams':teamslist})
 
 def signup(request):
     if request.method == 'POST':
