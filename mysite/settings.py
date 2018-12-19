@@ -126,3 +126,4 @@ MEDIA_URL = '/media/'
 
 # my_project/settings.py
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
