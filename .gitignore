@@ -1,0 +1,10 @@
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+.DS_Store
+blog/static/node_modules
+*.xml
+*.iml
+.idea

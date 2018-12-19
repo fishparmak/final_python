@@ -1,0 +1,92 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Team</title>
+	<link rel="stylesheet" href="css/mystyles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<section class="section team">
+		<div class="container">
+			<div class="box">
+				<div class="columns">
+					<div class="column">
+						<div class="level">
+							<div class="level-left">
+								<div class="level-item">
+									<figure class="image is-96x96">
+									  <img style="max-width:100%;"class="is-rounded" src="{{team.img}}">
+									</figure>
+								</div>
+								<div class="level-item is-marginless">
+									<div class="is-block">
+										<p class="subtitle is-3" style="margin-bottom: 15px;"><strong>{{team.name}}</strong></p>
+										<progress class="progress is-link" value="30" max="100" style="width: 80vw; max-width: 350px; margin-bottom: 15px;">30%</progress>
+										<p class="subtitle is-3 is-marginless">10 Lvl</p>
+									</div>
+								</div>
+							</div>
+							<div class="level-right">
+								<div class="level-item">
+									<a class="button is-info">Donate</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="columns">
+                    {% for user in users %}
+					<div class="column">
+						<div class="box">
+							<div class="block">
+								<figure class="image is-64x64">
+								  <img class="is-rounded" src="{{user.user.img}}">
+								</figure>
+							</div>
+							<div class="block">
+								<p class="subtitle is-3" style="margin-bottom: 15px;"><strong>{{user.user}}</strong></p>
+								<progress class="progress is-link" value="30" max="100" style="width: 80%; margin-bottom: 15px;">30%</progress>
+								<p class="subtitle is-3 is-marginless">10 Lvl</p>
+							</div>
+							<div class="block">
+								<a class="button">Open Profile</a>
+							</div>
+
+						</div>
+					</div>
+                    {%endfor%}
+				</div>
+			</div>
+			<div class="columns">
+				<div class="column">
+					<div class="box">
+						<h3 class="title is-3">Hackatons</h3>
+						<div class="box has-background-warning">
+                            {% for hack in hacks%}
+							<div class="box">
+								<p class="subtitle is-4">{{hack.hackathon}}</p>
+							</div>
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="box">
+						<h3 class="title is-3">Projects</h3>
+						<div class="box has-background-warning">
+                            {% for project in projects%}
+							<div class="box">
+								<p class="subtitle is-4">{{project.project}}</p>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+{% endblock %}

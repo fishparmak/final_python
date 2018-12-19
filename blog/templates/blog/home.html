@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="column is-5 is-offset-1">
+				<h2 class="title is-3">< Hackatons ></h2>
+				<div class="content">
+					<ul>
+                    {% for hack in hacks %}
+						<li>
+							<h3 class="title is-4">{{ hack.name }}</h3>
+							<p class="subtitle">{{ hack.description }}</p>
+							<div class="buttons">
+								<a href="{% url 'teams'%}" class="button is-info is-rounded">Teams</a>
+								<a href="#" class="button is-success is-rounded">Enroll</a>
+							</div>
+						</li>
+                        <hr class="hr has-background-grey-lighter">
+                        {% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="column is-6">
+				<div class="box">
+					<h2 class="title">Rating top 10</h2>
+					<table class="table is-striped">
+						<thead>
+							<tr>
+								<th><abbr title="Position">Pos</abbr></th>
+                                <th><abbr title="Avatar">Avatar</abbr></th>
+								<th><abbr title="Name">Team</abbr></th>
+								<th><abbr title="Name">Rating</abbr></th>
+							</tr>
+						</thead>
+						<tbody>
+                        {% for project in projects %}
+							<tr>
+								<th>1</th>
+                                <td><img style="width:100px;" src="{{project.img}}"/></td>
+								<td><a href="#">{{ project.name }}</a></td>
+								<td>{{ project.likes }}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

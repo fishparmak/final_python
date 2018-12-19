@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+	<section class="section">
+		<div class="container">
+			<div class="box scroll-x">
+				<h2 class="title is-3">
+					Teams
+				</h2>
+				<table class="table is-striped">
+					<thead>
+						<tr>
+							<th><abbr title="Position">Pos</abbr></th>
+	                        <th><abbr title="Avatar">Avatar</abbr></th>
+							<th><abbr title="Name">Name</abbr></th>
+							<th><abbr title="Reg">Registation</abbr></th>
+							<th><abbr title="Lvl">Level</abbr></th>
+							<th><abbr title="Rating">Rating</abbr></th>
+							<th><abbr title="Follow"></abbr></th>
+						</tr>
+					</thead>
+					<tbody>
+	                        {% for team in teams %}
+						<tr>
+							<th>1</th>
+	                        <td>
+							    <figure class="image is-48x48">
+								  <img class="is-rounded" src="{{team.img}}">
+								</figure>
+	                        </td>
+							<td><a style="font-size:18px;"href="{% url 'teamprof' team_id=team.id %}">{{ team.name }}</a></td>
+							<td>{{ team.created_date }}</td>
+							<td>100</td>
+							<td>25</td>
+							<td><a class="button is-info is-outlined">Follow</a></td>
+						</tr>
+	                        {% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+{% endblock %}
