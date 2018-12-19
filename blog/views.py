@@ -23,6 +23,10 @@ def home(request):
             break
     return render(request, 'blog/home.html', {'hacks': hacks, 'projects':projects})
 
+def hackprof(request, hackathon_id):
+    hackathon = Hackathon.objects.get(id = hackathon_id)
+    return render(request, 'blog/hackprof.html', {'hackathon': hackathon})
+
 def projects(request):
     temp = Project.objects.filter().order_by('-likes')
     hacks = Hackathon.objects.filter().order_by('date')
@@ -50,6 +54,11 @@ def users(request):
     users = User.objects.filter()
     uroles = UserRole.objects.filter()
     return render(request, 'blog/users.html', {'users': users, 'uroles':uroles})
+
+
+def userprof(request, user_id):
+    user = User.objects.get(id = user_id)
+    return render(request, 'blog/userprof.html', {'user': user})
 
 def signup(request):
     if request.method == 'POST':

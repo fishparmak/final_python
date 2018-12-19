@@ -11,7 +11,7 @@
 					<ul>
                     {% for hack in hacks %}
 						<li>
-							<h3 class="title is-4">{{ hack.name }}</h3>
+                            <a href="{% url 'hackprof' hackathon_id=hack.id %}"><h3 class="title is-4">{{ hack.name }}</h3></a>
 							<p class="subtitle">{{ hack.description }}</p>
 							<div class="buttons">
 								<a href="{% url 'teams'%}" class="button is-info is-rounded">Teams</a>

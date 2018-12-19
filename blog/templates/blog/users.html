@@ -31,7 +31,7 @@
 						<td>Junior-Backender</td>
 						<td>100</td>
 						<td>25</td>
-						<td><a class="button is-info">Open Profile</a></td>
+						<td><a href="{% url 'userprof' user_id=user.id %}" class="button is-info">Open Profile</a></td>
 					</tr>
                     {%endfor%}
 				</tbody>
