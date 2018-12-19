@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.contrib.auth import login as auth_login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Post, Hackathon, Project, Team, UserTeamHack, UserTeamProject, UserTeam, User, UserRole
 
@@ -48,3 +50,18 @@ def users(request):
     users = User.objects.filter()
     uroles = UserRole.objects.filter()
     return render(request, 'blog/users.html', {'users': users, 'uroles':uroles})
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+
+            auth_login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})

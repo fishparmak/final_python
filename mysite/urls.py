@@ -30,4 +30,5 @@ urlpatterns = [
     url(r'^users/$', views.users, name='users'),
     url(r'^teamprof/(?P<team_id>[0-9]+)$', views.teamprof, name = 'teamprof'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^signup/$', views.signup, name='signup'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
