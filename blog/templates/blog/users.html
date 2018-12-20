@@ -27,7 +27,7 @@
 							  <img class="is-rounded" src="{{user.img}}">
 							</figure>
                         </td>
-						<td><a style="font-size:18px;">{{ user.name }}</a></td>
+						<td><a href="{% url 'userprof' user_id=user.id %}" style="font-size:18px;">{{ user.name }}</a></td>
 						<td>Junior-Backender</td>
 						<td>100</td>
 						<td>25</td>

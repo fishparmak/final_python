@@ -46,7 +46,7 @@
 							<tr>
 								<th>1</th>
                                 <td><img style="width:100px;" src="{{project.img}}"/></td>
-								<td><a href="#">{{ project.name }}</a></td>
+								<td><a href="{% url 'projects'%}">{{ project.name }}</a></td>
 								<td>{{ project.likes }}</td>
 							</tr>
 						{% endfor %}

@@ -50,6 +50,20 @@ def teamprof(request, team_id):
     users =  UserTeam.objects.filter(team=team_id)
     return render(request, 'blog/teamprof.html', {'team':team, 'hacks':hacks, 'projects': projects, 'users': users})
 
+def teamEnroll(request, team_id):
+    team = Team.objects.get(id=team_id)
+    user = User.objects.get(author=request.user)
+    teamCheck = UserTeam.objects.filter(user=user)
+    answ = 1
+    if teamCheck is not None:
+        for tc in teamCheck:
+            if team == tc.team:
+                answ = 0
+                break
+    if answ == 1:
+        new_entry = UserTeam(user=user, team=team)
+        new_entry.save()
+    return render(request, 'blog/teamEnroll.html', {'team':team, 'answer': answ})
 def users(request):
     users = User.objects.filter()
     uroles = UserRole.objects.filter()

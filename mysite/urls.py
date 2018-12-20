@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^userprof/(?P<user_id>[0-9]+)', views.userprof, name = 'userprof'),
     url(r'^hackprof/(?P<hackathon_id>[0-9]+)', views.hackprof, name = 'hackprof'),
+    url(r'^teamEnroll/(?P<team_id>[0-9]+)$', views.teamEnroll, name = 'teamEnroll'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

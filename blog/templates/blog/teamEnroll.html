@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			</div>
+			<div class="column is-5" style="text-align: center">
+            <br><br>
+				<div class="box">
+                    {% if answer == 0 %}
+                    <h2 style="color:red;" class="title is-4"> Fault. You are already in <br>{{ team  }}</h2>
+                     {% elif answer == 1 %}
+                        <h2 style="color:lightseagreen;" class="title is-4"> Succsess! <br>{{ user }}, you has been added to <br><a href="{% url 'teamprof' team_id=team.id %}">{{ team }}</a></h2>
+                {% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
