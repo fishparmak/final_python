@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="columns">
 			<div class="column is-7 ">
-				<h2 class="title is-3">< Hackatons ></h2>
+				<h2 class="title is-3">< Hackathons ></h2>
 				<div class="content">
 					<tr>
                     {% for hack in hacks %}
@@ -20,7 +20,7 @@
 							<p class="subtitle">{{ hack.description }}</p>
 							<div class="buttons">
 								<a href="{% url 'teams'%}" class="button is-info is-rounded">Teams</a>
-								<a href="#" class="button is-success is-rounded">Enroll</a>
+{#								<a href="#" class="button is-success is-rounded">Enroll</a>#}
 							</div>
                         </td>
                         <hr class="hr has-background-grey-lighter">
@@ -29,6 +29,7 @@
 				</div>
 			</div>
 			<div class="column is-5">
+            <br><br>
 				<div class="box">
 					<h2 class="title">Rating top 10</h2>
 					<table class="table is-striped">

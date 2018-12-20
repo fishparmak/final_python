@@ -39,7 +39,7 @@ def projects(request):
     return render(request, 'blog/projects.html',{'projects':projects})
 
 def teams(request):
-    teams = Team.objects.filter().order_by('created_date')
+    teams = Team.objects.filter().order_by('?')
     count = 0
     return render(request, 'blog/teams.html', {'teams':teams, 'count':count})
 
@@ -71,7 +71,7 @@ def userprof(request, user_id):
         for h in htemp:
             hacks.add(h.hackathon)
 
-    return render(request, 'blog/userprof.html', {'user': user, 'projects': projects, 'hacks':hacks, 'teams':teamslist})
+    return render(request, 'blog/userprof.html', {'userr': user, 'projects': projects, 'hacks':hacks, 'teams':teamslist})
 
 def signup(request):
     if request.method == 'POST':

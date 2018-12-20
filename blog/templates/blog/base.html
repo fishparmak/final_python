@@ -58,7 +58,7 @@
 			        <div class="navbar-item">
 			          <div class="buttons">
                           {% if user.is_authenticated %}
-                            <div class="column">{{ user.username }}!</div>
+                              <div class="column"><a href="{% url 'userprof' user_id=user.id %}">{{ user.username }}!</a></div>
                               <p class="m-r-10"><a href="{% url 'logout' %}" class="button is-light m-r-10">logout</a></p>
                           {% else %}
                               <div class="column"> <p>You are not logged in</p></div>

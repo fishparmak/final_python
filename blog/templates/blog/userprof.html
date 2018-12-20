@@ -1,15 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-
 <section class="section">
 	<div class="container">
 		<div class="columns">
 			<div class="is-offset-0 column is-3">
 				<figure class="image is-image is-square">
-					<img class="is-rounded" src="{{ user.img }}" alt="">
+					<img class="is-rounded" src="{{ userr.img }}" alt="">
 				</figure>
-				<h2 class="title is-3">{{ user.name }}</h2>
+				<h2 class="title is-3">{{ userr.name }}</h2>
 					<div class="is-block">
 						<p class="subtitle is-3" style="margin-bottom: 15px;"><strong>{{team.name}}</strong></p>
 						<progress class="progress is-link" value="30" max="100" style="width: 80vw; max-width: 270px; margin-bottom: 15px;">69%</progress>
