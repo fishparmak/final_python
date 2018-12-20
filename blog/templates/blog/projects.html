@@ -1,76 +1,5 @@
-{% load static %}
-<html>
-	<head>
-	   <title>ITinder</title>
-	   <meta charset="utf-8">
-	   <meta name="viewport" content="width=device-width, initial-scale=1">
-	   <link rel="stylesheet" href="{% static 'css/mystyles.css' %}">
-	   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	</head>
-  <body class="page has-background-light">
-  	<header class="page__header">
-		  <nav class="navbar" role="navigation" aria-label="main navigation">
-		  	<div class="container">
-		    	<div class="navbar-brand">
-			      <a class="navbar-item" href="#">
-			        <div class="brand-icon">
-			        	<img src="../media/logo.png" alt="" width="32" height="32">
-			        </div>
-			        <div class="brand-content">
-			        	<h1 class="title">ITinder</h1>
-			        </div>
-			      </a>
-
-			      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-			        <span aria-hidden="true"></span>
-			        <span aria-hidden="true"></span>
-			        <span aria-hidden="true"></span>
-			      </a>
-			    </div>
-
-			    <div id="navbarBasicExample" class="navbar-menu">
-			      <div class="navbar-start">
-			      	<form class="navbar-item field is-marginless has-addons" action="/" method="get">
-			      		<div class="control">
-			      			<input class="input" type="text" placeholder="Find">
-			      		</div>
-			      		<div class="control">
-			      			<button class="button">
-			      				Search
-			      			</button>
-			      		</div>
-			      	</form>
-			      	<a href="{% url 'home'%}" class="navbar-item is-active">
-			          Home
-			        </a>
-			        <a href="{% url 'teams'%}"  class="navbar-item">
-			          Teams
-			        </a>
-			        <a href="{% url 'users'%}" class="navbar-item">
-			          Users
-			        </a>
-			        <a href="{% url 'projects'%}" class="navbar-item">
-			          Projects
-			        </a>
-			      </div>
-
-			      <div class="navbar-end">
-			        <div class="navbar-item">
-			          <div class="buttons">
-			            <a class="button is-primary">
-			              <strong>Sign up</strong>
-
-                        </a>
-			            <a class="button is-light">
-			              Log in
-			            </a>
-			          </div>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
-		  </nav>
-  	</header>
+{% extends 'blog/base.html' %}
+{% block content %}
 
 	<section class="section">
 		<div class="container">
@@ -128,3 +57,4 @@
 	</script>
   </body>
 </html>
+{% endblock %}
