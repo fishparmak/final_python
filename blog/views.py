@@ -101,3 +101,16 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+def like(request, project_id):
+    proj = Project.objects.get(id=project_id)
+    likes = proj.likes
+    proj.likes = likes+1
+    proj.save()
+    temp = Project.objects.filter().order_by('-likes')
+    projects = []
+    counter = 0;
+    for t in temp:
+        projects.append(t)
+        counter += 1
+    return render(request, 'blog/projects.html', {'projects': projects})
