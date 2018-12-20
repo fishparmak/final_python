@@ -20,6 +20,7 @@
 				</thead>
 				<tbody>
                     {% for user in users %}
+
 					<tr>
 						<th>1</th>
                         <td>
@@ -28,11 +29,12 @@
 							</figure>
                         </td>
 						<td><a href="{% url 'userprof' user_id=user.id %}" style="font-size:18px;">{{ user.name }}</a></td>
-						<td>Junior-Backender</td>
+						<td> {% for urole in uroles %}{% if urole.user == user %} {{ urole.role }}{% endif %}{%endfor%}</td>
 						<td>100</td>
 						<td>25</td>
 						<td><a href="{% url 'userprof' user_id=user.id %}" class="button is-info">Open Profile</a></td>
 					</tr>
+
                     {%endfor%}
 				</tbody>
 			</table>
